@@ -161,5 +161,5 @@ export const mapMarkersSrc = () => {
   const pt = LOCATIONS.map((l) => `${l.lon},${l.lat}`).join("~");
   const cLat = LOCATIONS.reduce((s, l) => s + l.lat, 0) / LOCATIONS.length;
   const cLon = LOCATIONS.reduce((s, l) => s + l.lon, 0) / LOCATIONS.length;
-  return `https://yandex.ru/map-widget/v1/?pt=${pt}&ll=${cLon},${cLat}&z=10`;
+  return `https://yandex.ru/map-widget/v1/?pt=${pt}&ll=${cLon},${cLat}&z=11`;
 };
