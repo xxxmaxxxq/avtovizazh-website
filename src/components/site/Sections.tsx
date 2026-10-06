@@ -255,9 +255,10 @@ export function Locations() {
         <SectionHeading eyebrow="Адреса" title="3 сервисных адреса в Ростове-на-Дону" />
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {LOCATIONS.map((loc) => (
-            <article key={loc.address} className="card-surface flex flex-col p-6">
+            <article key={loc.name} className="card-surface flex flex-col p-6">
               <MapPin className="size-5 text-primary" />
-              <h3 className="mt-4 text-lg leading-snug">{loc.address}</h3>
+              <h3 className="mt-4 text-lg leading-snug">{loc.name}</h3>
+              <p className="mt-1 text-sm font-semibold">{loc.address}</p>
               <p className="mt-1 flex-1 text-sm text-muted-foreground">{loc.city}</p>
               <div className="mt-6 flex flex-col gap-2 sm:flex-row">
                 <LinkButton
