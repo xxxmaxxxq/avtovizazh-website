@@ -11,6 +11,7 @@ import {
   PHONE_HREF,
   PROCESS,
   SERVICES,
+  mapMarkersSrc,
   mapRoute,
 } from "@/lib/site-data";
 import { Button, LinkButton, SectionHeading } from "./ui";
@@ -280,7 +281,7 @@ export function Locations() {
         <div className="mt-6 overflow-hidden rounded-2xl border border-border">
           <iframe
             title="Карта сервисных адресов АвтоВизаж в Ростове-на-Дону"
-            src="https://yandex.ru/map-widget/v1/?text=Ростов-на-Дону%20кузовной%20ремонт%20АвтоВизаж&z=11"
+            src={mapMarkersSrc()}
             loading="lazy"
             className="h-[380px] w-full"
           />
