@@ -1,4 +1,4 @@
-import { LOCATIONS, NAV, PHONE, PHONE_HREF } from "@/lib/site-data";
+import { EMAIL, LOCATIONS, NAV, PHONE, PHONE_HREF } from "@/lib/site-data";
 
 export function Footer() {
   return (
@@ -9,6 +9,12 @@ export function Footer() {
             AVTO<span className="text-primary">VIZAZH</span>
           </p>
           <p className="mt-3 text-sm text-muted-foreground">Кузовной и малярный ремонт</p>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="mt-4 block text-sm font-semibold hover:text-primary"
+          >
+            {EMAIL}
+          </a>
         </div>
 
         <div>
@@ -24,11 +30,13 @@ export function Footer() {
           <p className="text-xs font-bold tracking-[0.18em] text-muted-foreground uppercase">
             Адреса
           </p>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+          <ul className="mt-3 space-y-3 text-sm text-muted-foreground">
             {LOCATIONS.map((l) => (
-              <li key={l.address}>{l.address}</li>
+              <li key={l.name}>
+                <span className="font-bold text-foreground">{l.name}:</span> {l.address},{" "}
+                {l.city}
+              </li>
             ))}
-            <li>Ростов-на-Дону</li>
           </ul>
         </div>
 

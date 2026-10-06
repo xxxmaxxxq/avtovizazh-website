@@ -11,6 +11,7 @@ import {
   PHONE_HREF,
   PROCESS,
   SERVICES,
+  mapMarkersSrc,
   mapRoute,
 } from "@/lib/site-data";
 import { Button, LinkButton, SectionHeading } from "./ui";
@@ -255,9 +256,10 @@ export function Locations() {
         <SectionHeading eyebrow="Адреса" title="3 сервисных адреса в Ростове-на-Дону" />
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {LOCATIONS.map((loc) => (
-            <article key={loc.address} className="card-surface flex flex-col p-6">
+            <article key={loc.name} className="card-surface flex flex-col p-6">
               <MapPin className="size-5 text-primary" />
-              <h3 className="mt-4 text-lg leading-snug">{loc.address}</h3>
+              <h3 className="mt-4 text-lg leading-snug">{loc.name}</h3>
+              <p className="mt-1 text-sm font-semibold">{loc.address}</p>
               <p className="mt-1 flex-1 text-sm text-muted-foreground">{loc.city}</p>
               <div className="mt-6 flex flex-col gap-2 sm:flex-row">
                 <LinkButton
@@ -279,7 +281,7 @@ export function Locations() {
         <div className="mt-6 overflow-hidden rounded-2xl border border-border">
           <iframe
             title="Карта сервисных адресов АвтоВизаж в Ростове-на-Дону"
-            src="https://yandex.ru/map-widget/v1/?text=Ростов-на-Дону%20кузовной%20ремонт%20АвтоВизаж&z=11"
+            src={mapMarkersSrc()}
             loading="lazy"
             className="h-[380px] w-full"
           />

@@ -1,5 +1,6 @@
-export const PHONE = "+7 (000) 000-00-00";
-export const PHONE_HREF = "tel:+70000000000";
+export const PHONE = "+7 (863) 221-0-221";
+export const PHONE_HREF = "tel:+78632210221";
+export const EMAIL = "info@avtovizazh.ru";
 
 export const NAV = [
   { label: "Услуги", href: "#services" },
@@ -100,9 +101,27 @@ export const PROCESS = [
 ];
 
 export const LOCATIONS = [
-  { address: "ул. Демонстрационная, 1", city: "Город" },
-  { address: "ул. Демонстрационная, 2", city: "Город" },
-  { address: "ул. Демонстрационная, 3", city: "Город" },
+  {
+    name: "СТО №1",
+    address: "1-й Машиностроительный переулок, 8/1",
+    city: "Ростов-на-Дону",
+    lat: 47.2498203,
+    lon: 39.5868048,
+  },
+  {
+    name: "СТО №2",
+    address: "Беломорский переулок, 100Б",
+    city: "Ростов-на-Дону",
+    lat: 47.2803657,
+    lon: 39.7604085,
+  },
+  {
+    name: "СТО №3",
+    address: "улица Вавилова, 65А",
+    city: "Ростов-на-Дону",
+    lat: 47.2748091,
+    lon: 39.685167,
+  },
 ];
 
 export const FAQ = [
@@ -133,4 +152,14 @@ export const FAQ = [
 ];
 
 export const mapRoute = (address: string) =>
-  `https://yandex.ru/maps/?text=${encodeURIComponent(address)}&rtext=~`;
+  `https://yandex.ru/maps/?text=${encodeURIComponent(
+    `Ростов-на-Дону, ${address}`,
+  )}&rtext=~`;
+
+/** Метки только трёх СТО на карте (lat/lon — фактические координаты адресов). */
+export const mapMarkersSrc = () => {
+  const pt = LOCATIONS.map((l) => `${l.lon},${l.lat}`).join("~");
+  const cLat = LOCATIONS.reduce((s, l) => s + l.lat, 0) / LOCATIONS.length;
+  const cLon = LOCATIONS.reduce((s, l) => s + l.lon, 0) / LOCATIONS.length;
+  return `https://yandex.ru/map-widget/v1/?pt=${pt}&ll=${cLon},${cLat}&z=11`;
+};
